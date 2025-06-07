@@ -1,15 +1,15 @@
 const images = [
-    {
-      src: "${base}/Images/Fuselage.jpg",
-      caption: "Fuselage - Main Body of Autogyro",
-      link: "https://github.com/Arcilios/Autogyro-CAD-Design/tree/main/Fuselage"
-    },
-    {
-      src: "${base}/Images/PT_Platform.jpg",
-      caption: "PT Platform - Sensor Mount Platform",
-      link: "https://github.com/Arcilios/Autogyro-CAD-Design/tree/main/Camera"
-    }
-  ];
+  {
+    src: "Images/Fuselage.jpg",
+    caption: "Fuselage - Main Body of Autogyro",
+    link: "https://github.com/Arcilios/Autogyro-CAD-Design/tree/main/Fuselage"
+  },
+  {
+    src: "Images/PT_Platform.jpg",
+    caption: "PT Platform - Sensor Mount Platform",
+    link: "https://github.com/Arcilios/Autogyro-CAD-Design/tree/main/Camera"
+  }
+];
   
   const container = document.getElementById("gallery");
   

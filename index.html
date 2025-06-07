@@ -8,6 +8,18 @@
 </head>
 <body>
 
+  <!-- Floating Navigation -->
+  <nav class="floating-nav">
+    <ul>
+      <li><a href="#components" title="CAD Preview">🛠️</a></li>
+      <li><a href="#quickstart" title="Quick Start">🚀</a></li>
+      <li><a href="#user-guide" title="User Guide">📘</a></li>
+      <li><a href="#dji-stream" title="DJI FPV Setup">📡</a></li>
+      <li><a href="https://github.com/Arcilios/Autogyro-CAD-Design" target="_blank" title="GitHub">🔗</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
   <header>
     <h1>🌀 Autogyro CAD Design</h1>
     <p>Explore the components of our surveillance gyrocopter UAV project.</p>
@@ -18,13 +30,100 @@
     </p>
   </header>
 
+  <!-- Main Content -->
   <main>
     <h2>🛠️ CAD Component Preview</h2>
-    <div id="gallery" class="gallery">
-      <!-- JS will populate this -->
-    </div>
-  </main>
+    <section id="components">
+      <div id="gallery" class="gallery">
+        <!-- JS will populate this -->
+      </div>
+      <p class="note">
+        ⚙️ <strong>Note:</strong> FS90R servo is used for <strong>Pan</strong> control (connected to <code>D9</code>),  
+        and MG90S servo is used for <strong>Tilt</strong> control (connected to <code>D10</code>).
+      </p>
+    </section>
 
+    <section class="quickstart" id="quickstart">
+      <h2>🚀 Quick Start Guide for Flying Autogyro</h2>
+      <ol>
+        <li>Launch <strong>QGroundControl</strong> on your computer.</li>
+        <li>
+          Ensure the Pixhawk is properly prepared:
+          <ul>
+            <li>Make sure the <strong>Pixhawk</strong> is powered on,</li>
+            <li>And the <strong>Telemetry Radio</strong> is securely connected to the Pixhawk.</li>
+            <li>Then either:
+              <ul>
+                <li>Connect the <strong>Telemetry Radio</strong> to your computer, or</li>
+                <li>Use a <strong>USB-C cable</strong> to connect the <strong>Pixhawk</strong> directly.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Wait for QGroundControl to establish a connection.</li>
+        <li>Once connected, read logs to assess sensor status.</li>
+        <li>
+          Verify sensor health:
+          <ul>
+            <li>Check the <strong>attitude indicator</strong> and <strong>GPS panel</strong> in QGroundControl.</li>
+            <li>Check all sensor readings in <strong>Analyze Tools → Mavlink Inspector</strong>.</li>
+          </ul>
+        </li>
+        <li>
+          Once the top-left status reads <strong>"Ready to Fly"</strong> (in green):  
+          <ul>
+            <li>Push the throttle stick to the bottom-right corner to <strong>arm</strong> the aircraft.</li>
+          </ul>
+        </li>
+        <li>Switch to <strong>Manual Mode</strong> and you're ready to fly!</li>
+      </ol>
+      <p class="note">
+        💡 <strong>Note:</strong> If a <strong>Sensor Error</strong> appears in QGroundControl, please refer to the
+        <a href="https://docs.px4.io/" target="_blank">official PX4 documentation</a>.
+      </p>
+    </section>
+
+    <section class="quickstart" id="user-guide">
+      <h2>📘 User Guide for Camera Tracking System</h2>
+
+      <h3>1. <code>Servo_test.py</code> – Servo Motor Communication Test</h3>
+      <ul>
+        <li>Connect Arduino and upload <code>cam_control.ino</code>.</li>
+        <li>Run <code>Servo_test.py</code>.</li>
+        <li>Sends <code>P85</code> to <code>P95</code> to FS90R, MG90S stays at T90.</li>
+      </ul>
+
+      <h3>2. <code>object_detection_control.py</code> – Real-Time Detection</h3>
+      <ul>
+        <li>Install with: <code>pip install opencv-python ultralytics pyserial numpy</code></li>
+        <li>Use webcam and Arduino with correct <code>COM</code> port.</li>
+        <li>Run script to track person and control servos in real time.</li>
+      </ul>
+
+      <h3>3. <code>cam_control.ino</code> – Arduino Servo Receiver</h3>
+      <ul>
+        <li>Upload to Arduino.</li>
+        <li>Connect FS90R to <code>D9</code>, MG90S to <code>D10</code>.</li>
+        <li>Receives <code>PXXTXX</code> via Serial and drives servos.</li>
+      </ul>
+    </section>
+
+    <section class="quickstart" id="dji-stream">
+      <h2>📡 DJI FPV Streaming Setup</h2>
+      <p><strong>Purpose:</strong> Use your DJI FPV video feed as a source for object detection.</p>
+      <ol>
+        <li><strong>Connect DJI FPV Goggles to your smartphone</strong> using appropriate cable.</li>
+        <li><strong>Launch DJI Fly App</strong> on your smartphone and ensure the live feed is visible.</li>
+        <li><strong>Mirror your smartphone screen</strong> to your computer using tools like <code>scrcpy</code> or <code>Vysor</code>.</li>
+        <li><strong>Open OBS Studio</strong>, add the mirrored screen as a source, then start a <strong>virtual camera</strong>.</li>
+        <li><strong>Update <code>cam_num</code></strong> in <code>object_detection_control.py</code> to use the virtual camera (e.g., <code>cam_num=2</code>).</li>
+      </ol>
+      <p class="note">
+        💡 <strong>Tip:</strong> You can test camera indexes using <code>cv2.VideoCapture(index)</code> in a loop.
+      </p>
+      <img src="Images/fpv_setup_diagram.png" alt="DJI FPV Setup Diagram">
+    </section>
+  </main>
 
   <script src="Website Setting/script.js"></script>
 </body>

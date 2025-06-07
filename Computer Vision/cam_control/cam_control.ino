@@ -1,7 +1,7 @@
 #include <Servo.h>
 
-Servo servoPan;   // FS90R (水平旋转)
-Servo servoTilt;  // MG90S (俯仰)
+Servo servoPan;   // FS90R (
+Servo servoTilt;  // MG90S 
 
 String inputString = ""; 
 bool stringComplete = false;
@@ -11,8 +11,8 @@ void setup() {
   servoPan.attach(9);   // FS90R
   servoTilt.attach(10); // MG90S
   inputString.reserve(20);
-  servoPan.write(92);   // 停止
-  servoTilt.write(90);  // 居中
+  servoPan.write(92);   
+  servoTilt.write(90);  
 }
 
 void loop() {

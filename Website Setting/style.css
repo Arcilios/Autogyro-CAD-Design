@@ -1,77 +1,167 @@
+/* === Global Reset & Font === */
 body {
-    font-family: "Segoe UI", sans-serif;
-    background: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    color: #333;
+  font-family: "Segoe UI", sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #004080;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  color: #004080;
+}
+
+a {
+  color: #0077b6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p, li {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* === Header === */
+header {
+  background: #004080;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.button {
+  background: #0077b6;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* === Main Layout === */
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* === Gallery Section === */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1.5em;
+  margin-top: 1em;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.caption {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* === Notes === */
+.note {
+  margin-top: 1em;
+  background: #fffbe6;
+  border-left: 4px solid #ffc107;
+  padding: 0.8em;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+/* === DJI Section Image === */
+.quickstart img {
+  display: block;
+  margin: 1rem auto;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* === Floating Navigation === */
+.floating-nav {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.floating-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.floating-nav li {
+  margin: 1rem 0;
+}
+
+.floating-nav a {
+  display: block;
+  font-size: 1.5rem;
+  padding: 0.4rem;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  text-align: center;
+  color: #004080;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.floating-nav a:hover {
+  background-color: #0077b6;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .floating-nav {
+    display: none;
   }
-  
-  header {
-    background-color: #004080;
-    color: white;
-    padding: 2rem;
-    text-align: center;
-  }
-  
+
   main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    margin: 1rem;
   }
-  
-  h2 {
-    color: #004080;
-    margin-top: 2rem;
-  }
-  
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-  }
-  
-  .card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-    transition: transform 0.2s ease;
-  }
-  
-  .card:hover {
-    transform: scale(1.03);
-  }
-  
-  .card img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: contain; 
-    background-color: white;
-  }
-  
-  
-  .caption {
-    padding: 1rem;
-    font-size: 1rem;
-    text-align: center;
-  }
-  
-  .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #0077b6;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    margin-top: 1rem;
-  }
-  
-  @media (max-width: 600px) {
-    .gallery {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
+}
